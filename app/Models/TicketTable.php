@@ -14,8 +14,10 @@ class TicketTable extends Model
         'ticket_id',
         'cus_id',
         'tour_id',
-        'price',
+        'phone',
         'state',
+        'total_price',
+        'payment',
         'created_at',
         'updated_at'
     ];
