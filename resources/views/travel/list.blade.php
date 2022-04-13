@@ -8,11 +8,16 @@
             <div class="col-4" style="margin-bottom:1rem">
                 <div class="p-2" style="min-height: 100%; height: 100%;">
                     <div class="card hover-shadow border" style="min-height: 100%; height: 100%;">
+
+                        @if($item['photo_id'] != 0 )
                         <div>
                             @if($item['created_at'] >= Carbon\Carbon::now()) <span class="badge bg-danger">In Today!</span>
                             @endif
+                            <img class="rounded card-img-top" src="{{asset('storage/image/'.$item['photo_name'])}}" width="30%">
                         </div>
-                        <img class="rounded card-img-top" src="image/placeholder-image.png" alt="Placeholder">
+                        @else
+                        <img class="rounded card-img-top" src="image/placeholder-image.png">
+                        @endif
                         <div class="card-body">
                             <h5 class="card-title text-warning text-center" onclick="window.location='{{ route("travel.details", $item['id']) }}'" style="cursor:pointer">{{$item['name']}}</h5>
                             <p class="font-weight-bold text-danger text-center">${{$item['price']}}</p>

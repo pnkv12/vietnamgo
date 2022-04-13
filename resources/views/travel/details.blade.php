@@ -12,7 +12,7 @@
     </div>
     <div style="margin:3rem 4rem 3rem 4rem">
         <div class="d-flex flex-row mb-2 justify-content-between">
-            <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="img-fluid shadow-2-strong align-items-evenly" alt="Wild Landscape" style="width:60%" />
+            <img src="{{asset('storage/image/'.$data['photo_name'])}}" class="img-fluid shadow-2-strong align-items-evenly" style="width:60%" />
             <div>
                 <p class="lead text-warning"><strong>{{$data['name']}}</strong></p>
                 <p><strong>Code:</strong> {{$data['tour_code']}}</p>

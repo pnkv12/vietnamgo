@@ -18,7 +18,7 @@
                 {{$data['created_at']}} | {{$data['cate_name']}}
             </p>
 
-            <img src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp" class="img-fluid shadow-2-strong" />
+            <img src="{{asset('storage/image/'.$data['photo_name'])}}" class="img-fluid shadow-2-strong" />
         </div>
         <div style="margin-top:3rem">
             <p class="text-justify text-wrap text-break">{!! nl2br(e($data['content']))!!}</p>

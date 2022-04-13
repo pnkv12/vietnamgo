@@ -10,6 +10,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
+use App\Models\PhotoModel;
 use Illuminate\Support\Facades\DB;
 
 class ToursController extends Controller

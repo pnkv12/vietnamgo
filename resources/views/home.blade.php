@@ -15,7 +15,11 @@
                                 @if($item['created_at'] >= Carbon\Carbon::now()->subDays(3)) <span class="badge bg-danger">Latest</span>
                                 @endif
                             </div>
-                            <img class="rounded card-img-top" src="image/placeholder-image.png" alt="Placeholder">
+                            @if($item['photo_id'] != 0 )
+                            <img class="rounded card-img-top" src="{{asset('storage/image/'.$item['photo_name'])}}">
+                            @else
+                            <img class="rounded card-img-top" src="image/placeholder-image.png">
+                            @endif
                             <div class="card-body">
                                 <h5 class="card-title text-warning text-center" style="cursor:pointer">{{$item['title']}}
                                 </h5>
@@ -44,7 +48,11 @@
                 <div class="col-4">
                     <div class="p-2" style="min-height: 100%; height: 100%;">
                         <div class="card hover-shadow border" style="min-height: 100%; height: 100%;">
-                            <img class="rounded card-img-top" src="image/placeholder-image.png" alt="Placeholder">
+                            @if($item['photo_id'] != 0 )
+                            <img class="rounded card-img-top" src="{{asset('storage/image/'.$item['photo_name'])}}">
+                            @else
+                            <img class="rounded card-img-top" src="image/placeholder-image.png">
+                            @endif
                             <div class="card-body">
                                 <h5 class="card-title text-warning text-center" style="cursor:pointer">{{$item['title']}}
                                 </h5>
