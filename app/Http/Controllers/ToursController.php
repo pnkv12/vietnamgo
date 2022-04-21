@@ -10,8 +10,8 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
-use App\Models\PhotoModel;
 use Illuminate\Support\Facades\DB;
+use Stripe;
 
 class ToursController extends Controller
 {
@@ -98,7 +98,17 @@ class ToursController extends Controller
             (float) $getTourPrice = DB::table('tours')->select('price')->where('id', $customer['id'])->value('price');
             $totalPrice = $getTourPrice * (int)$customer['members'];
 
+            // Create payment object
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+            $charge = \Stripe\Charge::create([
+                "amount" => $totalPrice * 100,
+                "currency" => "usd",
+                "source" => 'tok_visa',
+                "description" => "Paid"
+            ]);
+
             $bookingData['total_price'] = $totalPrice;
+            $bookingData['payment'] = $charge["amount"];
 
             $this->__ticket->storeTicket($bookingData);
 
@@ -112,7 +122,7 @@ class ToursController extends Controller
         }
         return response()->json([
             'error'   => false,
-            'message' => "Please check your email for confirmation."
+            'message' => "Your total payment: $totalPrice has been sent. Please see to your email for e-ticket."
 
         ]);
     }

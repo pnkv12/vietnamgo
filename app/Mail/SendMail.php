@@ -38,7 +38,6 @@ class SendMail extends Mailable
     public function build(Request $request)
     {
         $data = $request->all();
-        // $data = DB::table('booking-ticket')->select('*')->get();
 
         return $this->subject($this->subject)->replyTo('pnkv12@gmail.com', 'Vy Pham')
             ->view('mails.mailing', ['data' => $data]);
