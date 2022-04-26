@@ -56,7 +56,8 @@ class ToursController extends Controller
         return view('mails.bookform', ['data' => $data]);
     }
 
-    //Add Customer data + Tour Data => Booking Ticket
+    // Add Customer data + Tour Data => Booking Ticket
+    // [POST]/confirmSubmit
     public function confirmFormAction(Request $request)
     {
         $customer = $request->except('_token');

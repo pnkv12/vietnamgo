@@ -41,7 +41,7 @@
         <section class="menu">
             <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-warning">
                 <a class="navbar-brand text-uppercase text-light font-weight-bold" href="{{route('home.page')}}" style="margin-left:4rem"><img src="{{ URL::to('/') }}/image/vngo-logo.png" style="width:4rem" /></a>
-
+                <div class="navbar-brand text-uppercase text-light font-weight-bold" style="margin-left:2rem">Hotline:&nbsp<span class="text-primary"> <a href="#">1900.8080</a></span></div>
                 <div class="collapse navbar-collapse d-flex justify-content-end" style="margin-right:4rem">
                     <ul class="nav nav-tabs">
                         <li class="nav-item">

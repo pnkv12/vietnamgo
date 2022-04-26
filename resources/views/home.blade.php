@@ -11,10 +11,6 @@
                 <div class="col-4" style="margin-bottom:1rem">
                     <div class="p-2" style="min-height: 100%; height: 100%;">
                         <div class="card hover-shadow border" style="min-height: 100%; height: 100%;">
-                            <div>
-                                @if($item['created_at'] >= Carbon\Carbon::now()->subDays(3)) <span class="badge bg-danger">Latest</span>
-                                @endif
-                            </div>
                             @if($item['photo_id'] != 0 )
                             <img class="rounded card-img-top" src="{{asset('storage/image/'.$item['photo_name'])}}">
                             @else
